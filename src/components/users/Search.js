@@ -1,19 +1,23 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTrash } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
 export class Search extends Component {
     state = {
         text: "",
+        showClearIcon: true,
     };
 
     static propTypes = {
         searchUsers: PropTypes.func.isRequired,
+        clearusers: PropTypes.func.isRequired,
+        showClearIcon: PropTypes.bool.isRequired,
     };
 
     onSubmit = (e) => {
         e.preventDefault();
+        if (this.state.text === "") return;
         this.props.searchUsers(this.state.text);
         this.setState({ text: "" });
     };
@@ -41,9 +45,24 @@ export class Search extends Component {
                     <button
                         type="submit"
                         value="Search"
-                        className="button button-big px-2 py-1 bg-blue-300 text-white rounded-full"
+                        className="button button-big mr-2 px-2 py-1 bg-blue-300 text-white rounded-full"
                     >
                         <FontAwesomeIcon icon={faSearch} />
+                    </button>
+                    <button
+                        type="button"
+                        value="Search"
+                        className="button button-big px-2 py-1 bg-red-500 text-white rounded-full"
+                        style={
+                            this.props.showClearIcon
+                                ? null
+                                : { display: "none" }
+                        }
+                        onClick={() => {
+                            this.props.clearUsers();
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faTrash} />
                     </button>
                 </form>
             </div>
