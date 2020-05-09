@@ -3,6 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export class Search extends Component {
+    state = {
+        text: "",
+    };
+
+    onChange = (e) => {
+        this.setState({ text: e.target.value });
+    };
+
     render() {
         return (
             <div className="container">
@@ -12,6 +20,8 @@ export class Search extends Component {
                         name="text"
                         placeholder="Search Users..."
                         className="inline-block w-full"
+                        value={this.state.text}
+                        onChange={this.onChange}
                     />
                     <button
                         type="submit"
