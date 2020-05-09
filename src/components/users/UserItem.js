@@ -13,6 +13,7 @@ function UserItem({ user: { login, avatar_url, html_url } }) {
             <div className="my-2">
                 <a
                     href={html_url}
+                    target="blank"
                     className="button px-2 py-1 bg-teal-400  rounded text-white"
                 >
                     More

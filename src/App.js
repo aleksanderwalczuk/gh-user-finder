@@ -11,28 +11,26 @@ class App extends React.Component {
         loading: false,
     };
 
-    // async componentDidMount() {
-    //     this.setState({ loading: true });
-    //     const res = await axios.get(`https://api.github.com/users?client_id=
-    //     ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=
-    //     ${process.env.REACT_APP_GITHUB_SECRET}`);
+    async componentDidMount() {
+        this.setState({ loading: true });
+        const res = await axios.get(`https://api.github.com/users?client_id=
+        ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=
+        ${process.env.REACT_APP_GITHUB_SECRET}`);
 
-    //     this.setState({
-    //         users: res.data,
-    //         loading: !this.state.loading,
-    //     });
-    // }
+        this.setState({
+            users: res.data,
+            loading: !this.state.loading,
+        });
+    }
     // search gh users
     searchUsers = async (text) => {
-        console.log(text);
+        this.setState({ loading: true });
+
         const url = `https://api.github.com/search/users?q=
         ${text}&client_id=
         ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=
         ${process.env.REACT_APP_GITHUB_SECRET}`;
         const res = await axios.get(url);
-
-        console.log(res.data.items);
-        console.log();
 
         this.setState({
             users: res.data.items,
