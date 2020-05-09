@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default class Navbar extends Component {
+    static defaultProps = {
+        title: "Github Finder",
+    };
+
     render() {
         return (
             <nav className="container flex items-center">

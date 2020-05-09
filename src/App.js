@@ -7,7 +7,7 @@ class App extends React.Component {
         const name = "John Doe";
         return (
             <div className="h-24 flex justify-start content-center bg-blue-300">
-                <Navbar title="Github Finder" />
+                <Navbar />
             </div>
         );
     }
