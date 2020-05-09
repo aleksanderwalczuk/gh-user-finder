@@ -1,16 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import UserItem from "./UserItem";
+import Loader from "../layout/Loader";
 
-class Users extends Component {
-    render() {
-        return (
+
+const Users = ({ users, loading }) => {
+    if (loading) {
+        return <Loader />;
+    } else {
+        return loading ? (
+            <Loader />
+        ) : (
             <div className="flex flex-wrap">
-                {this.props.users.map((user) => (
+                {users.map((user) => (
                     <UserItem key={user.id} user={user} />
                 ))}
             </div>
         );
     }
-}
+};
+
+
 
 export default Users;
