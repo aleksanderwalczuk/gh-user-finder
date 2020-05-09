@@ -9,10 +9,10 @@ class UserItem extends Component {
     };
 
     render() {
-        const { login, avatar_url, html_url } = this.state;
+        const { login, avatar_url, html_url } = this.props.user;
 
         return (
-            <div className="card center text-center max-w-xs p-4 m-10 shadow-lg">
+            <div className="w-1/4 text-center basis p-4 m-10 shadow-lg">
                 <img
                     src={avatar_url}
                     alt=""

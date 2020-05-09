@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
-import UserItem from "./components/users/UserItem";
+import Users from "./components/users/Users";
 
 class App extends React.Component {
     render() {
@@ -11,7 +11,7 @@ class App extends React.Component {
                     <Navbar />
                 </div>
                 <div className="container">
-                    <UserItem />
+                    <Users />
                 </div>
             </Fragment>
         );
