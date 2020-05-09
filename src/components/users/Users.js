@@ -1,7 +1,7 @@
 import React from "react";
 import UserItem from "./UserItem";
 import Loader from "../layout/Loader";
-
+import PropTypes from "prop-types";
 
 const Users = ({ users, loading }) => {
     if (loading) {
@@ -19,6 +19,9 @@ const Users = ({ users, loading }) => {
     }
 };
 
-
+Users.porpTypes = {
+    users: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+};
 
 export default Users;
