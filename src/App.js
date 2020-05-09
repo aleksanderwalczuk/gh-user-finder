@@ -10,7 +10,9 @@ class App extends React.Component {
                 <div className="h-24 flex justify-start content-center bg-blue-300">
                     <Navbar />
                 </div>
-                <UserItem />
+                <div className="container">
+                    <UserItem />
+                </div>
             </Fragment>
         );
     }
