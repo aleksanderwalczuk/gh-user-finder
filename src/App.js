@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import './App.css';
+import Navbar from './components/layout/Navbar'
 
-class App extends React.Component{
+class App extends React.Component {
 
     render() {
         const name = 'John Doe'
         return (
-            <h1>Hello {name}</h1>
+            <Fragment>
+                <div className="h-24 flex justify-end bg-blue-300">
+                    <Navbar/>
+
+                </div>
+            </Fragment>
         )
     }
-    
+
 }
 
 export default App;
