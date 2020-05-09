@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 export class Search extends Component {
     state = {
         text: "",
+    };
+
+    static propTypes = {
+        searchUsers: PropTypes.func.isRequired,
     };
 
     onSubmit = (e) => {
@@ -27,6 +32,7 @@ export class Search extends Component {
                     <input
                         type="text"
                         name="text"
+                        autoFocus={true}
                         placeholder="Search Users..."
                         className="inline-block w-full"
                         value={this.state.text}
