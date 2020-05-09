@@ -7,6 +7,11 @@ export class Search extends Component {
         text: "",
     };
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state.text);
+    };
+
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     };
@@ -14,7 +19,10 @@ export class Search extends Component {
     render() {
         return (
             <div className="container">
-                <form action="" className="flex w-full px-5 py-6">
+                <form
+                    onSubmit={this.onSubmit}
+                    className="flex w-full px-5 py-6"
+                >
                     <input
                         type="text"
                         name="text"
