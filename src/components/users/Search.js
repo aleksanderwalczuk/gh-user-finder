@@ -27,6 +27,8 @@ export class Search extends Component {
     };
 
     render() {
+        const {showClearIcon, searchUsers, clearUsers} = this.props
+        const {text} = this.state
         return (
             <div className="container">
                 <form
@@ -39,7 +41,7 @@ export class Search extends Component {
                         autoFocus={true}
                         placeholder="Search Users..."
                         className="inline-block w-full"
-                        value={this.state.text}
+                        value={text}
                         onChange={this.onChange}
                     />
                     <button
@@ -54,12 +56,12 @@ export class Search extends Component {
                         value="Search"
                         className="button button-big px-2 py-1 bg-red-500 text-white rounded-full"
                         style={
-                            this.props.showClearIcon
+                            showClearIcon
                                 ? null
                                 : { display: "none" }
                         }
                         onClick={() => {
-                            this.props.clearUsers();
+                            clearUsers();
                         }}
                     >
                         <FontAwesomeIcon icon={faTrash} />
