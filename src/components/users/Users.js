@@ -11,13 +11,13 @@ class Users extends Component {
                 html_url: "https://github.com/mojombo",
             },
             {
-                id: "id",
+                id: "ids",
                 login: "defunkt",
                 avatar_url: "https://avatars0.githubusercontent.com/u/2?v=4",
                 html_url: "https://github.com/defunkt",
             },
             {
-                id: "id",
+                id: "ida",
                 login: "pjhyett",
                 avatar_url: "https://avatars0.githubusercontent.com/u/3?v=4",
                 html_url: "https://github.com/pjhyett",
