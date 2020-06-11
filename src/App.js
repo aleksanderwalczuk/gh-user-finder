@@ -50,6 +50,9 @@ class App extends React.Component {
                 type
             }
         })
+        setTimeout(() => {
+            this.setState({alert: null})
+        }, 2500)
     }
 
     render() {
