@@ -12,7 +12,8 @@ class App extends React.Component {
     state = {
         users: [],
         loading: false,
-        alert: null
+        alert: null,
+        user: {}
 
     };
 
@@ -56,6 +57,22 @@ class App extends React.Component {
         setTimeout(() => {
             this.setState({alert: null})
         }, 2500)
+    }
+
+    getUser = async (username) => {
+        this.setState({
+            loading: true
+        })
+        const url = `https://api.github.com/search/users/
+        ${username}&client_id=
+        ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=
+        ${process.env.REACT_APP_GITHUB_SECRET}`;
+        const res = await axios.get(url);
+        this.setState({
+            user: res.data,
+            loading: false
+        })
+
     }
 
     render() {
