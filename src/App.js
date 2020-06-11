@@ -41,12 +41,13 @@ class App extends React.Component {
     clearUsers = () => this.setState({ users: [], loading: false });
 
     render() {
+        const { users, loading } = this.state;
         return (
             <Fragment>
                 <div className="h-24 flex justify-start content-center bg-blue-300">
                     <Navbar />
                 </div>
-                <div className="container">
+                <div className="container mx-auto">
                     <Search
                         searchUsers={this.searchUsers}
                         clearUsers={this.clearUsers}
@@ -54,10 +55,7 @@ class App extends React.Component {
                             this.state.users.length > 0 ? true : false
                         }
                     />
-                    <Users
-                        loading={this.state.loading}
-                        users={this.state.users}
-                    />
+                    <Users loading={loading} users={users} />
                 </div>
             </Fragment>
         );
