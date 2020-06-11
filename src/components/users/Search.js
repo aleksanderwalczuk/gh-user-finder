@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import React, {Component} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import {SearchTrashIcon} from "./SearchTrashIcon";
 import PropTypes from "prop-types";
 
@@ -18,13 +18,17 @@ export class Search extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        if (this.state.text === "") return;
-        this.props.searchUsers(this.state.text);
-        this.setState({ text: "" });
+        if (this.state.text === "") {
+            this.props.setAlert('Please enter something', 'light')
+        } else {
+            this.props.searchUsers(this.state.text);
+            this.setState({text: ""});
+        }
+
     };
 
     onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({[e.target.name]: e.target.value});
     };
 
     render() {
@@ -50,9 +54,9 @@ export class Search extends Component {
                         value="Search"
                         className="button button-big mr-2 px-2 py-1 bg-blue-300 text-white rounded-full"
                     >
-                        <FontAwesomeIcon icon={faSearch} />
+                        <FontAwesomeIcon icon={faSearch}/>
                     </button>
-                    {showClearIcon && ( <SearchTrashIcon
+                    {showClearIcon && (<SearchTrashIcon
                             clearUsers={clearUsers}
                         />
                     )}
