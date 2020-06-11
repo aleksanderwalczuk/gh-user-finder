@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import About from "./components/pages/About";
 import Users from "./components/users/Users";
+import User from "./components/users/User";
 import Alert from "./components/layout/Alert";
 import {Search} from "./components/users/Search";
 import axios from "axios";
@@ -76,7 +77,7 @@ class App extends React.Component {
     }
 
     render() {
-        const {users, loading, alert} = this.state;
+        const {users, loading, alert, user} = this.state;
         return (
             <Router>
                 <div className="h-24 flex justify-start content-center bg-blue-300">
@@ -99,6 +100,9 @@ class App extends React.Component {
                             </Fragment>
                         )}/>
                         <Route exact path='/about' component={About}/>
+                        <Route exact path='/user/:login' render={props => (
+                            <User {...props} getUser={this.getUser} user={user} loading={loading}/>
+                        )}/>
                     </Switch>
 
                 </div>
