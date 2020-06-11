@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import {SearchTrashIcon} from "./SearchTrashIcon";
 import PropTypes from "prop-types";
 
@@ -52,8 +52,8 @@ export class Search extends Component {
                     >
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
-                    {this.props.showClearIcon && ( <SearchTrashIcon
-                            clearUsers={this.props.clearUsers}
+                    {showClearIcon && ( <SearchTrashIcon
+                            clearUsers={clearUsers}
                         />
                     )}
 
