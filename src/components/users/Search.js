@@ -11,7 +11,7 @@ export class Search extends Component {
 
     static propTypes = {
         searchUsers: PropTypes.func.isRequired,
-        clearusers: PropTypes.func.isRequired,
+        clearUsers: PropTypes.func.isRequired,
         showClearIcon: PropTypes.bool.isRequired,
     };
 
@@ -40,7 +40,7 @@ export class Search extends Component {
                         name="text"
                         autoFocus={true}
                         placeholder="Search Users..."
-                        className="inline-block w-full"
+                        className="inline-block w-full outline-none focus:shadow-outline focus:border-blue-300 mx-2 px-2"
                         value={text}
                         onChange={this.onChange}
                     />
