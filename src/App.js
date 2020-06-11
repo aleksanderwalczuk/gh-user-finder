@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
+import Alert from "./components/layout/Alert";
 import { Search } from "./components/users/Search";
 import axios from "axios";
 
@@ -52,19 +53,20 @@ class App extends React.Component {
     }
 
     render() {
-        const { users, loading } = this.state;
+        const { users, loading, alert } = this.state;
         return (
             <Fragment>
                 <div className="h-24 flex justify-start content-center bg-blue-300">
                     <Navbar />
                 </div>
                 <div className="container mx-auto">
+                    <Alert alert={alert}/>
                     <Search
                         searchUsers={this.searchUsers}
                         clearUsers={this.clearUsers}
                         setAlert={this.setAlert}
                         showClearIcon={
-                            this.state.users.length > 0 ? true : false
+                            users.length > 0 ? true : false
                         }
                     />
                     <Users loading={loading} users={users} />
