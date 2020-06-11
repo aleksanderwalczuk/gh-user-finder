@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {SearchTrashIcon} from "./SearchTrashIcon";
 import PropTypes from "prop-types";
 
 export class Search extends Component {
@@ -51,21 +52,11 @@ export class Search extends Component {
                     >
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
-                    <button
-                        type="button"
-                        value="Search"
-                        className="button button-big px-2 py-1 bg-red-500 text-white rounded-full"
-                        style={
-                            showClearIcon
-                                ? null
-                                : { display: "none" }
-                        }
-                        onClick={() => {
-                            clearUsers();
-                        }}
-                    >
-                        <FontAwesomeIcon icon={faTrash} />
-                    </button>
+                    {this.props.showClearIcon && ( <SearchTrashIcon
+                            clearUsers={this.props.clearUsers}
+                        />
+                    )}
+
                 </form>
             </div>
         );
