@@ -64,10 +64,7 @@ class App extends React.Component {
         this.setState({
             loading: true
         })
-        const url = `https://api.github.com/search/users/
-        ${username}&client_id=
-        ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=
-        ${process.env.REACT_APP_GITHUB_SECRET}`;
+        const url = `https://api.github.com/users/${username}`;
         const res = await axios.get(url);
         this.setState({
             user: res.data,
@@ -101,7 +98,10 @@ class App extends React.Component {
                         )}/>
                         <Route exact path='/about' component={About}/>
                         <Route exact path='/user/:login' render={props => (
-                            <User {...props} getUser={this.getUser} user={user} loading={loading}/>
+                            <User {...props}
+                                  getUser={this.getUser}
+                                  user={user}
+                                  loading={loading}/>
                         )}/>
                     </Switch>
 
