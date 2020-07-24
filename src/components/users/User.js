@@ -17,7 +17,7 @@ export default class User extends Component {
 
     render() {
         const {
-            name,
+            nameee,
             avatar,
             url,
             location, bio, blog, login, html_url, followers, following, public_repos, public_gists, hireable
